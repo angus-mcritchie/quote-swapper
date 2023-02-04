@@ -15,9 +15,6 @@
     "Other"
   ],
   "publisher": "angus-mcritchie",
-  "activationEvents": [
-    "onCommand:quote-swapper.swap-quotes"
-  ],
   "main": "./dist/extension.js",
   "contributes": {
     "commands": [
