@@ -3,6 +3,7 @@
   "displayName": "quote-swapper",
   "description": "Select text and run this command to replace all single quotes with double quotes and all double quotes with single quotes.",
   "version": "0.0.1",
+  "icon": "icon.png",
   "engines": {
     "vscode": "^1.75.0"
   },
