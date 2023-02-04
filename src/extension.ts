@@ -14,24 +14,28 @@ export function activate(context: vscode.ExtensionContext) {
 			return;
 		}
 
-		const selection = editor.selection;
-		const text = editor.document.getText(selection);
-		let newText = '';
-
-		for (let i = 0; i < text.length; i++) {
-			const character = text[i];
-
-			if (character === "'") {
-				newText += '"';
-			} else if (character === '"') {
-				newText += "'";
-			} else {
-				newText += character;
-			}
-		}
+		const DOUBLE_QUOTE = `"`;
+		const SINGLE_QUOTE = `'`;
 
 		editor.edit((editBuilder) => {
-			editBuilder.replace(selection, newText);
+			editor.selections.forEach((selection) => {
+				const text = editor.document.getText(selection);
+				let newText = '';
+
+				for (let i = 0; i < text.length; i++) {
+					const character = text[i];
+
+					if (character === SINGLE_QUOTE) {
+						newText += DOUBLE_QUOTE;
+					} else if (character === DOUBLE_QUOTE) {
+						newText += SINGLE_QUOTE;
+					} else {
+						newText += character;
+					}
+				}
+
+				editBuilder.replace(selection, newText);
+			});
 		});
 
 	});
