@@ -10,8 +10,11 @@ This is a very simple extension that does one thing. It will swap single quotes 
 Let's say you have the following code.
 
 ```php
+<?php
+
 $text = 'Click me';
 $button_html = '<div class="btn">{$text}</div>';
+//_____________^___________^__^____🤦________^
 ```
 
 And you want php to parse the variable `$text` inside the double quotes. You can do it by swapping the quotes.
@@ -19,8 +22,12 @@ And you want php to parse the variable `$text` inside the double quotes. You can
 Run the command "Swap Quotes" from the command palette and you will get:
 
 ```php
+<?php
+
 $text = 'Click me';
 $button_html = "<div class='btn'>{$text}</div>";
+//_____________^___________^__^____🥳________^
+
 ```
 
 **Enjoy!**
